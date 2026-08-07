@@ -1,1 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOP Conseil — Spécialiste des projets gare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#060c3d;
+    --navy:#0d1868;
+    --navy-mid:#1424a0;
+    --rose:#d98fc7;
+    --ink:#0d1030;
+    --paper:#f6f6fb;
+    --paper-dim:#eceef7;
+    --line:rgba(255,255,255,0.18);
+    --white:#ffffff;
+    --muted:#c7cdef;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.disp{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:600;
+  }
 
+  /* ===== NAV ===== */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(6,12,61,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:74px;
+  }
+  .nav-logo img{height:30px;}
+  .nav-links{display:flex; gap:36px; align-items:center;}
+  .nav-links a{
+    color:var(--muted); font-size:14px; font-weight:500;
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--white);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:12px 26px; border-radius:100px;
+    font-size:14px; font-weight:600;
+    border:1.5px solid transparent;
+    cursor:pointer; transition:all .2s;
+  }
+  .btn-light{background:var(--white); color:var(--navy);}
+  .btn-light:hover{background:var(--rose); color:var(--navy-deep);}
+  .btn-outline{border-color:rgba(255,255,255,0.5); color:var(--white);}
+  .btn-outline:hover{border-color:var(--white); background:rgba(255,255,255,0.08);}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:640px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    background:
+      linear-gradient(100deg, rgba(6,10,55,0.94) 0%, rgba(8,15,80,0.75) 45%, rgba(10,20,110,0.35) 78%, rgba(10,20,110,0.15) 100%),
+      url('assets/hero-bg.jpg') center 30%/cover no-repeat;
+    color:var(--white);
+    padding:70px 0 60px;
+    overflow:hidden;
+  }
+  .hero-content{max-width:640px;}
+  .hero-content .eyebrow{color:var(--rose); margin-bottom:18px;}
+  .hero-content h1{font-size:56px; line-height:1.15; color:var(--white);}
+  .hero-content p{
+    margin-top:22px; font-size:17px; color:var(--muted); max-width:520px;
+  }
+  .hero-cta{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
+  .hero-tag{
+    align-self:flex-end;
+    font-size:12px; letter-spacing:2px; color:var(--muted);
+  }
+
+  /* ===== ABOUT / STATS ===== */
+  .about{
+    position:relative;
+    background:var(--navy);
+    color:var(--white);
+    padding:100px 0 90px;
+    overflow:hidden;
+  }
+  .about-swoosh{
+    position:absolute; left:0; bottom:0; width:70%; height:60%;
+    opacity:0.55; pointer-events:none;
+  }
+  .about-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px;
+    position:relative; z-index:1;
+  }
+  .about-head h2{font-size:38px; margin-bottom:14px;}
+  .about-head .eyebrow{color:var(--rose); font-size:15px; letter-spacing:0.5px; text-transform:none; font-weight:600;}
+  .about-body p{color:var(--muted); font-size:16px; margin-bottom:16px;}
+  .about-body strong{color:var(--white);}
+  .stats{
+    position:relative; z-index:1;
+    margin-top:70px;
+    display:grid; grid-template-columns:repeat(5,1fr); gap:24px;
+  }
+  .stat{text-align:left;}
+  .stat svg{width:36px; height:36px; margin-bottom:18px; stroke:var(--white);}
+  .stat .num{font-family:'Poppins',sans-serif; font-size:38px; font-weight:600;}
+  .stat .lbl{font-size:13.5px; color:var(--muted); margin-top:4px;}
+
+  /* ===== GARE (image + pins) ===== */
+  .gare{
+    position:relative;
+    min-height:600px;
+    display:flex; align-items:center;
+    background:
+      linear-gradient(90deg, rgba(6,10,60,0.93) 0%, rgba(8,14,80,0.55) 42%, rgba(10,18,100,0.1) 68%),
+      url('assets/gare-bg.jpg') center/cover no-repeat;
+    color:var(--white);
+    padding:80px 0;
+  }
+  .gare-text{max-width:480px;}
+  .gare-text h2{font-size:40px; line-height:1.2; margin-bottom:22px;}
+  .gare-text p{color:var(--muted); font-size:15.5px; margin-bottom:16px;}
+  .pin{
+    position:absolute;
+    display:flex; align-items:center; gap:10px;
+    font-size:14px; font-weight:500;
+  }
+  .pin .dot{
+    width:11px; height:11px; border-radius:50%;
+    background:var(--white); border:2px solid var(--navy);
+    box-shadow:0 0 0 4px rgba(255,255,255,0.25);
+  }
+  .pin.p1{top:22%; right:14%;}
+  .pin.p2{top:44%; right:6%;}
+  .pin.p3{bottom:24%; left:52%;}
+
+  /* ===== PROCESS ===== */
+  .process{background:var(--paper); padding:90px 0 0;}
+  .process h2{
+    font-size:32px; text-align:center; color:var(--navy);
+    max-width:720px; margin:0 auto 56px;
+  }
+  .steps{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:0;
+    align-items:start;
+    padding-bottom:56px;
+  }
+  .step{
+    position:relative;
+    padding:0 16px 0 0;
+    border-top:3px solid var(--navy);
+    padding-top:22px;
+  }
+  .step svg{width:34px; height:34px; stroke:var(--navy); margin-bottom:14px;}
+  .step h3{font-size:16px; color:var(--navy); margin-bottom:12px; line-height:1.3;}
+  .step ul{list-style:none; font-size:12.5px; color:#4a4f74;}
+  .step li{margin-bottom:9px; padding-left:12px; position:relative;}
+  .step li::before{
+    content:''; position:absolute; left:0; top:7px;
+    width:4px; height:4px; border-radius:50%; background:var(--rose);
+  }
+  .assist-bar{
+    background:var(--navy);
+    padding:22px 0 34px;
+  }
+  .assist-pill{
+    display:block; margin:0 auto 26px; width:fit-content;
+    background:var(--paper); color:var(--navy);
+    font-size:13px; font-weight:600; letter-spacing:1.5px;
+    padding:14px 34px; border-radius:100px;
+    transform:translateY(-46px);
+  }
+  .assist-row{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    color:var(--white); font-weight:600; font-size:15px;
+    margin-top:-16px;
+  }
+
+  /* ===== REALISATIONS ===== */
+  .real{
+    background:var(--navy-deep); color:var(--white);
+    padding:100px 0;
+  }
+  .real-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px;}
+  .real-head h2{font-size:40px; line-height:1.2; margin-bottom:20px;}
+  .real-head p{color:var(--muted); font-size:15px; margin-bottom:30px;}
+  .real-table{display:flex; flex-direction:column;}
+  .real-row{
+    display:grid; grid-template-columns:1fr 220px;
+    gap:20px; padding:20px 0; border-bottom:1px solid var(--line);
+    align-items:center;
+  }
+  .real-row:last-child{border-bottom:none;}
+  .real-row .mission{font-size:15px; color:var(--white);}
+  .real-row .gare{font-size:15px; font-weight:600; color:var(--rose); text-align:right; background:none; min-height:auto; padding:0; display:block;}
+  .real-cols-head{
+    display:grid; grid-template-columns:1fr 220px; gap:20px;
+    padding-bottom:14px; border-bottom:2px solid var(--line);
+    font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--rose); font-weight:600;
+  }
+  .real-cols-head span:last-child{text-align:right;}
+
+  /* ===== WHY US ===== */
+  .why{background:var(--paper); padding:100px 0;}
+  .why-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:0; align-items:stretch;}
+  .why-img{position:relative; border-radius:20px 0 0 20px; overflow:hidden;}
+  .why-img img{width:100%; height:100%; object-fit:cover;}
+  .why-head{padding:0 0 30px 0;}
+  .why-head h2{font-size:36px; color:var(--navy); line-height:1.2;}
+  .why-card{
+    background:var(--navy);
+    border-radius:0 20px 20px 0;
+    color:var(--white);
+    padding:44px 44px;
+    display:flex; flex-direction:column; gap:30px;
+    justify-content:center;
+  }
+  .why-item{display:flex; gap:18px;}
+  .why-item svg{width:30px; height:30px; flex-shrink:0; stroke:var(--rose); margin-top:2px;}
+  .why-item h3{font-size:17px; margin-bottom:6px; color:var(--white);}
+  .why-item p{font-size:14px; color:var(--muted);}
+
+  /* ===== TRUST ===== */
+  .trust{background:var(--navy); color:var(--white); padding:100px 0;}
+  .trust-grid{display:grid; grid-template-columns:0.75fr 1.25fr; gap:50px; align-items:center;}
+  .trust-head h2{font-size:36px; line-height:1.2; margin-bottom:18px;}
+  .trust-head p{color:var(--muted); font-size:15px;}
+  .trust-cats{display:flex; flex-direction:column; gap:26px;}
+  .trust-cat-label{
+    font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--rose);
+    margin-bottom:10px; font-weight:600;
+  }
+  .trust-pills{display:flex; gap:12px; flex-wrap:wrap;}
+  .pill-badge{
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:11px 22px;
+    font-size:14px; font-weight:600;
+    font-family:'Poppins',sans-serif;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact{
+    position:relative;
+    background:
+      linear-gradient(100deg, rgba(6,10,55,0.95) 0%, rgba(8,15,80,0.8) 40%, rgba(10,20,110,0.4) 75%),
+      url('assets/contact-bg.jpg') center/cover no-repeat;
+    color:var(--white);
+    padding:90px 0 60px;
+    min-height:520px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .contact-logo img{height:44px; margin-bottom:44px;}
+  .contact .eyebrow{color:var(--muted); margin-bottom:10px;}
+  .contact h2{font-size:28px; margin-bottom:34px;}
+  .contact-person{display:flex; gap:20px; align-items:center;}
+  .contact-avatar{
+    width:78px; height:78px; border-radius:50%;
+    background:var(--rose);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Poppins',sans-serif; font-weight:600; font-size:24px; color:var(--navy-deep);
+    flex-shrink:0;
+  }
+  .contact-person h3{font-size:19px;}
+  .contact-person .role{color:var(--muted); font-size:14px; margin:2px 0 10px;}
+  .contact-person .details{font-size:14.5px; color:var(--white);}
+  .contact-foot{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:60px; padding-top:24px; border-top:1px solid var(--line);
+    font-size:14px; color:var(--muted); flex-wrap:wrap; gap:16px;
+  }
+  .li-badge{
+    width:36px; height:36px; border-radius:50%;
+    background:#0a66c2; display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:980px){
+    .about-grid,.real-grid,.why-grid,.trust-grid{grid-template-columns:1fr;}
+    .stats{grid-template-columns:repeat(3,1fr); row-gap:36px;}
+    .steps{grid-template-columns:repeat(3,1fr); row-gap:36px;}
+    .why-img{border-radius:20px 20px 0 0; min-height:280px;}
+    .why-card{border-radius:0 0 20px 20px;}
+    .hero-content h1{font-size:42px;}
+    .nav-links{display:none;}
+    .real-row,.real-cols-head{grid-template-columns:1fr 140px;}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:1fr 1fr; row-gap:30px;}
+    .hero-content h1{font-size:34px;}
+    .assist-row{justify-content:flex-start; gap:22px;}
+    .contact-foot{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#"><img src="https://gopconseil1.sharepoint.com/:i:/g/IQB39Ce_6W6RRLi186_vkFFPASkzp6AG-7sPnGLBaYBGRHA?e=2ntEMU" alt="GOP Conseil"></a>
+    <div class="nav-links">
+      <a href="#apropos">À propos</a>
+      <a href="#accompagnement">Accompagnement</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#contact" class="btn btn-light">Nous contacter</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-content">
+    <div class="eyebrow">Spécialiste des projets gare</div>
+    <h1>Cabinet d'études<br>et conseil</h1>
+    <p>GOP accompagne maîtres d'ouvrage et maîtres d'œuvre à chaque étape des projets gare, de la conception à la remise en exploitation, avec une approche holistique de la performance ferroviaire.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-light">Demander notre plaquette</a>
+      <a href="#accompagnement" class="btn btn-outline">Découvrir notre offre</a>
+    </div>
+  </div>
+  <div class="wrap"><div class="hero-tag">PRÉSENTATION 2025</div></div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="apropos">
+  <svg class="about-swoosh" viewBox="0 0 800 500" preserveAspectRatio="none">
+    <path d="M-50 500 C 150 350, 250 300, 450 320 C 650 340, 700 250, 850 150 L 850 500 Z" fill="rgba(255,255,255,0.05)"/>
+    <path d="M-50 500 C 200 400, 300 380, 500 400 C 650 415, 720 340, 850 260 L 850 500 Z" fill="rgba(255,255,255,0.04)"/>
+  </svg>
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-head">
+        <h2>À propos</h2>
+        <div class="eyebrow">Le projet, c'est d'abord l'Humain.</div>
+      </div>
+      <div class="about-body">
+        <p>Doté d'une expérience réussie dans la coordination et la gestion des projets gares, GOP propose aujourd'hui une <strong>offre complète</strong> couvrant toutes les étapes, de la conception à la remise en exploitation avec une <strong>approche holistique</strong> intégrant les contraintes techniques, de maintenance et d'exploitation dès l'amont.</p>
+        <p>Notre objectif, in fine, est de participer à <strong>l'optimisation de la performance des gares</strong> tout en améliorant l'<strong>Expérience voyageur</strong>, grâce à une maîtrise parfaite des interfaces et une gestion de projet rigoureuse.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.5c.7.6 1 1.4 1 2.5h6c0-1.1.3-1.9 1-2.5A6 6 0 0012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="num">2022</div>
+        <div class="lbl">Date de création</div>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 20h4v-8H3v8zM10 20h4V4h-4v16zM17 20h4v-12h-4v12z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="num">1,3M€</div>
+        <div class="lbl">Chiffre d'affaires</div>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.8 21c0-3-3.6-5-8.8-5s-8.8 2-8.8 5M12 12a4 4 0 100-8 4 4 0 000 8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="num">15</div>
+        <div class="lbl">Collaborateurs</div>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 17l4-4 4 3 8-9M20 7v5M20 7h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="num">+40</div>
+        <div class="lbl">Projets gare réalisés</div>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.6 6.8L12 16.9 5.8 20.4l1.6-6.8L2.2 9l6.9-.7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="num">100%</div>
+        <div class="lbl">Satisfaction client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARE -->
+<section class="gare">
+  <div class="wrap" style="position:relative;">
+    <div class="gare-text">
+      <h2>La gare, lieu de rencontres</h2>
+      <p>La gare est un lieu de convergence, réunissant voyageurs, exploitants ferroviaires, gestionnaires d'infrastructures, acteurs institutionnels et techniques.</p>
+      <p>GOP s'engage à limiter les pertes en ligne et à harmoniser ces différentes visions pour garantir une coordination fluide et efficace.</p>
+    </div>
+    <div class="pin p1"><span class="dot"></span>Maintenance</div>
+    <div class="pin p2"><span class="dot"></span>Exploitation</div>
+    <div class="pin p3"><span class="dot"></span>Circulation</div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="accompagnement">
+  <div class="wrap">
+    <h2>Un accompagnement à chaque étape du projet gare</h2>
+    <div class="steps">
+      <div class="step">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 20l6-6M14 4l6 6-10 10H4v-6z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Conception</h3>
+        <ul>
+          <li>Analyse des référentiels techniques et réglementaires</li>
+          <li>Plan de situation de la gare en environnement urbain</li>
+          <li>Accompagnement à l'élaboration du programme</li>
+          <li>Estimations et scénarios des variantes projet</li>
+          <li>Etude accessibilité et optimisation des quais</li>
+        </ul>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 21l6-6M14 3l7 7-11 11H3v-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Etudes techniques</h3>
+        <ul>
+          <li>Analyse des données d'entrée</li>
+          <li>Notice technique, plan et estimations</li>
+          <li>Maquettes BIM</li>
+          <li>Détection proactive des conflits techniques (clashs)</li>
+          <li>Etudes d'exécution</li>
+          <li>Validation du visa d'étude</li>
+        </ul>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-3.5 3.6-6 8-6s8 2.5 8 6" stroke-linecap="round"/></svg>
+        <h3>Management de projets</h3>
+        <ul>
+          <li>Pilotage des études techniques</li>
+          <li>Synthèse technique et revue BIM</li>
+          <li>Planification et phasage</li>
+          <li>Réservations capacitaires en amont</li>
+          <li>Estimations financières LEA</li>
+          <li>Analyse des risques</li>
+        </ul>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 5a2 2 0 002 2h2a2 2 0 002-2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Marché et attribution</h3>
+        <ul>
+          <li>Stratégie marché</li>
+          <li>DCE</li>
+          <li>Dossiers financiers</li>
+          <li>Procédures administratives</li>
+          <li>Soutenance technique et financière</li>
+          <li>Démarches préalables aux travaux</li>
+        </ul>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l3 5h-6z"/><path d="M4 8h16l-1.5 12h-13z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Réalisation</h3>
+        <ul>
+          <li>Mission de sécurité ferroviaire</li>
+          <li>Réunions de chantiers</li>
+          <li>Suivi de production et qualité des travaux</li>
+          <li>Visa d'exécution</li>
+          <li>Validations des métrés</li>
+          <li>Décomptes généraux</li>
+        </ul>
+      </div>
+      <div class="step">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 21V10l9-7 9 7v11h-6v-6H9v6z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Maintenance et Exploitation</h3>
+        <ul>
+          <li>Recueil des prescriptions maintenance et exploitation</li>
+          <li>Préparation de l'entrée en périmètre travaux</li>
+          <li>PV de maintenabilité</li>
+          <li>Validation de la remise à l'exploitant gare (RA411)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="assist-bar">
+    <div class="wrap">
+      <div class="assist-pill">ASSISTANCE OPÉRATIONNELLE TOUT AU LONG DU PROJET</div>
+      <div class="assist-row">
+        <span>AMOA</span><span>MOE Etude</span><span>MOEG</span>
+        <span>Contract management</span><span>MOE Travaux / OPC</span><span>RAE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="real" id="realisations">
+  <div class="wrap">
+    <div class="real-grid">
+      <div class="real-head">
+        <h2>Parmi nos réalisations</h2>
+        <p>GOP est partenaire de nombreux experts reconnus dans les métiers du bâtiment, le génie civil et le ferroviaire et totalisent +30 ans d'expérience dans la gestion de projets d'envergure.</p>
+        <p>Demandez notre plaquette pour accéder à plus de références.</p>
+        <a href="#contact" class="btn btn-light">Demander notre plaquette</a>
+      </div>
+      <div class="real-table">
+        <div class="real-cols-head"><span>Missions réalisées</span><span>Gares</span></div>
+        <div class="real-row">
+          <span class="mission">Conception technique, suivi AO, attribution et pilotage des travaux</span>
+          <span class="gare">Etampes</span>
+        </div>
+        <div class="real-row">
+          <span class="mission">Interconnexion au Grand Paris Ligne 18</span>
+          <span class="gare">Massy Palaiseau</span>
+        </div>
+        <div class="real-row">
+          <span class="mission">Etude technique : remplacement des bornes de contrôle automatique des billets</span>
+          <span class="gare">Rambouillet</span>
+        </div>
+        <div class="real-row">
+          <span class="mission">Modernisation, et mise en accessibilité du bâtiment voyageur et quais</span>
+          <span class="gare">Sartrouville</span>
+        </div>
+        <div class="real-row">
+          <span class="mission">MOEG et OPC, interconnexion Issy-les-Moulineaux et ligne 15 Sud</span>
+          <span class="gare">Issy-les-Moulineaux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="pourquoi">
+  <div class="wrap">
+    <div class="why-head"><h2>Pourquoi nous choisir ?</h2></div>
+    <div class="why-grid">
+      <div class="why-img"><img src="assets/why-us.jpg" alt="Équipe GOP sur le terrain"></div>
+      <div class="why-card">
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 21V10l9-7 9 7v11h-6v-6H9v6z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <h3>10 ans d'expérience en MOEG gare</h3>
+            <p>Nous avons développé une maîtrise parfaite de l'environnement et des interfaces projets gare (SNCF, mainteneurs, exploitants, PRI...)</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <h3>Une expertise pointue de la gare</h3>
+            <p>Une connaissance fine des infrastructures internes (VRD, infogare, sonorisation, vidéosurveillance, mise au rail...) est un atout majeur.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2v20M2 12h20" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <h3>Un accompagnement sur mesure</h3>
+            <p>De l'étude partielle à la gestion globale, nous adaptons nos interventions à vos besoins spécifiques.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18 13 13 0 010-18z" stroke-linecap="round"/></svg>
+          <div>
+            <h3>Des interventions flexibles</h3>
+            <p>Nous vous proposons des solutions centrées sur les objectifs des maîtres d'ouvrage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-head">
+        <h2>Ils nous font confiance</h2>
+        <p>Nous sommes fiers de la confiance de nos clients, et mettons tout en œuvre pour leur satisfaction.</p>
+      </div>
+      <div class="trust-cats">
+        <div>
+          <div class="trust-cat-label">MOA</div>
+          <div class="trust-pills">
+            <span class="pill-badge">RATP</span>
+            <span class="pill-badge">SNCF Gares &amp; Connexions</span>
+            <span class="pill-badge">SNCF Réseau</span>
+          </div>
+        </div>
+        <div>
+          <div class="trust-cat-label">MOE</div>
+          <div class="trust-pills">
+            <span class="pill-badge">Artelia</span>
+            <span class="pill-badge">Egis</span>
+          </div>
+        </div>
+        <div>
+          <div class="trust-cat-label">Entreprises travaux</div>
+          <div class="trust-pills">
+            <span class="pill-badge">Eiffage</span>
+            <span class="pill-badge">Vinci Construction</span>
+            <span class="pill-badge">Equans</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-logo"><img src="https://gopconseil1.sharepoint.com/:i:/g/IQB39Ce_6W6RRLi186_vkFFPASkzp6AG-7sPnGLBaYBGRHA?e=2ntEMU" alt="GOP Conseil"></div>
+    <div class="eyebrow">Contact</div>
+    <h2>Agence Île-de-France</h2>
+    <div class="contact-person">
+      <div class="contact-avatar"><img src="https://gopconseil1.sharepoint.com/:i:/g/IQCdQ2rxbw1IRJ2lCGSgweU7Af8CyphbrOijHZtS5Fs_5fk?e=cnZwL3" alt="GOP Conseil"></div>
+      <div>
+        <h3>Hatim Lakhdar</h3>
+        <div class="role">Directeur général</div>
+        <div class="details">h.lakhdar@gop-conseil.com &nbsp;·&nbsp; 07 69 23 48 28</div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap contact-foot">
+    <span>www.gop-conseil.com</span>
+    <a class="li-badge" href="#" aria-label="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
