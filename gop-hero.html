@@ -47,9 +47,7 @@ section,header,footer{position:relative;overflow:hidden}
 .hero{
   min-height:100vh;
   color:#fff;
-  background:
-    linear-gradient(90deg,rgba(7,34,145,.96) 0%,rgba(14,53,179,.88) 42%,rgba(15,54,180,.50) 72%,rgba(15,54,180,.22) 100%),
-    url("pexels-ashamplifies-3578767.jpg") center/cover no-repeat;
+  background:var(--blue-deep);
 }
 .hero:after,
 .photo-section:after,
@@ -58,9 +56,7 @@ section,header,footer{position:relative;overflow:hidden}
   position:absolute;
   inset:0;
   pointer-events:none;
-  background:
-    linear-gradient(135deg,transparent 55%,rgba(255,255,255,.05) 55%,transparent 56%),
-    linear-gradient(160deg,transparent 62%,rgba(255,255,255,.04) 62%,transparent 63%);
+  background:linear-gradient(135deg,transparent 55%,rgba(255,255,255,.025) 55%,transparent 56%);
 }
 .hero-logo{
   position:absolute;
@@ -159,9 +155,7 @@ section,header,footer{position:relative;overflow:hidden}
   background-repeat:no-repeat;
 }
 .station{
-  background-image:
-    linear-gradient(90deg,rgba(8,32,142,.94) 0%,rgba(12,49,169,.78) 43%,rgba(10,38,150,.30) 75%,rgba(10,38,150,.10) 100%),
-    url("pexels-gije-7107624.jpg");
+  background:var(--blue-deep);
 }
 .photo-content{
   padding:100px 0;
@@ -478,9 +472,7 @@ section,header,footer{position:relative;overflow:hidden}
 .contact{
   color:#fff;
   min-height:100vh;
-  background:
-    linear-gradient(90deg,rgba(7,34,145,.96) 0%,rgba(14,53,179,.84) 48%,rgba(15,54,180,.42) 100%),
-    url("pexels-ashamplifies-3578767.jpg") center/cover no-repeat;
+  background:var(--blue-deep);
   padding:65px 0 35px;
 }
 .contact-logo img{width:78px}
@@ -542,6 +534,66 @@ section,header,footer{position:relative;overflow:hidden}
   font-size:12px;
 }
 
+
+/* ---------------- CONTAINED IMAGE TREATMENT ---------------- */
+.hero-photo,
+.station-photo,
+.contact-photo{
+  position:absolute;
+  z-index:1;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 18px 45px rgba(0,0,0,.16);
+}
+.hero-photo{
+  right:6%;
+  top:12%;
+  width:43%;
+  height:76%;
+  border-radius:14px;
+}
+.station-photo{
+  right:5%;
+  top:10%;
+  width:48%;
+  height:80%;
+  border-radius:14px;
+}
+.contact-photo{
+  right:5%;
+  top:13%;
+  width:39%;
+  height:74%;
+  border-radius:14px;
+  opacity:.96;
+}
+.hero-photo img,
+.station-photo img,
+.contact-photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#fff;
+}
+.hero-content,
+.photo-content,
+.contact .inner{z-index:3}
+@media(max-width:900px){
+  .hero-photo,.station-photo,.contact-photo{
+    position:relative;
+    right:auto;top:auto;
+    width:100%;
+    height:260px;
+    margin:25px auto 0;
+    border-radius:10px;
+  }
+  .hero-photo{order:0}
+  .hero-content{padding-top:55px}
+  .photo-content{padding-top:50px}
+  .contact-photo{margin-bottom:25px}
+}
+
 /* ---------------- RESPONSIVE ---------------- */
 @media(max-width:900px){
   .inner{width:min(100% - 44px,700px)}
@@ -580,6 +632,9 @@ section,header,footer{position:relative;overflow:hidden}
   <div class="hero-logo">
     <img src="GOP_logo_isolated.png" alt="GOP">
   </div>
+  <div class="hero-photo">
+    <img src="pexels-ashamplifies-3578767.jpg" alt="">
+  </div>
   <div class="inner hero-content">
     <div class="kicker">Spécialiste des projets gare</div>
     <h1>Cabinet d’études<br>et conseil</h1>
@@ -613,6 +668,9 @@ section,header,footer{position:relative;overflow:hidden}
 
 <!-- 03 / STATION -->
 <section class="slide photo-section station">
+  <div class="station-photo">
+    <img src="pexels-gije-7107624.jpg" alt="Gare">
+  </div>
   <div class="inner photo-content">
     <div class="text">
       <h2>La gare, lieu de<br>rencontres</h2>
@@ -798,6 +856,9 @@ section,header,footer{position:relative;overflow:hidden}
 
 <!-- 08 / CONTACT -->
 <footer class="slide contact" id="contact">
+  <div class="contact-photo">
+    <img src="pexels-ashamplifies-3578767.jpg" alt="">
+  </div>
   <div class="inner">
     <div class="contact-logo"><img src="GOP_logo_isolated.png" alt="GOP"></div>
 
