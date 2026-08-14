@@ -4,112 +4,1118 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GOP — Accueil</title>
+
 <style>
-:root{--navy:#173a5e;--red:#c9283d;--bg:#f4f5f7;--text:#252a31;--muted:#999fa6;--border:#e1e4e8}
-*{box-sizing:border-box}html,body{margin:0}body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);font-size:14px}a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
-.header{height:61px;background:#fff;border-bottom:1px solid #e2e4e7;display:flex;align-items:center;position:sticky;top:0;z-index:20}.header-inner{width:min(1040px,calc(100% - 40px));height:100%;margin:auto;display:flex;align-items:center}.logo{width:45px;margin-right:34px}.logo img{width:43px}.nav{display:flex;height:100%;gap:27px}.nav a{display:flex;align-items:center;position:relative;font-size:13px;font-weight:650;color:#4e5359}.nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--red)}.spacer{flex:1}.search{width:235px;height:40px;border:1px solid #d7dade;border-radius:9px;padding:0 13px;outline:0}.avatar{width:38px;height:38px;border-radius:50%;background:#f9dce1;color:#bd3043;display:grid;place-items:center;font-weight:700;font-size:12px;margin-left:14px}
-.page{width:min(1040px,calc(100% - 40px));margin:auto;padding-bottom:40px}.hero{height:290px;position:relative;overflow:hidden;border-radius:0 0 15px 15px;box-shadow:0 2px 7px #10203018}.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,#123c67f5 0%,#143d64b8 38%,#143d6435 75%,#143d6418),url("pexels-gije-7107624.jpg");background-size:cover;background-position:center}.hero-content{position:relative;z-index:2;width:650px;max-width:75%;padding:49px 40px;color:white}.kicker{font-size:11px;font-weight:750;letter-spacing:1.2px;color:#bfd1e3;margin-bottom:10px}.hero h1{font-size:27px;line-height:1.08;margin:0 0 12px;font-weight:760}.hero p{font-size:13px;line-height:1.65;color:#dce6ef;max-width:570px;margin:0 0 18px}.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff;padding:12px 21px;border-radius:6px;font-size:13px;font-weight:750}
-.news{height:57px;margin-top:27px;border:1px solid var(--border);border-radius:16px;background:#fff;box-shadow:0 2px 7px #10203012;display:flex;align-items:center;padding:0 16px;overflow:hidden;white-space:nowrap}.news-label{background:#fdecef;color:var(--red);font-size:11px;font-weight:800;padding:6px 10px;border-radius:99px;margin-right:20px}.news-items{display:flex;gap:18px;overflow:hidden;flex:1;color:#7c8289;font-size:11px}.news-items strong{color:#24282d}.news-all{color:var(--navy);font-weight:750;font-size:11px;margin-left:14px}
-.title{font-size:18px;line-height:1.2;font-weight:760;margin:27px 0 11px}.essentials{display:grid;grid-template-columns:1fr 1fr;gap:17px}.card{min-height:107px;border:1px solid var(--border);border-radius:16px;background:#fff;box-shadow:0 2px 7px #10203012;display:flex;align-items:center;padding:18px 22px 18px 27px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red)}.icon{width:50px;height:50px;border-radius:10px;background:#f5f6f8;display:grid;place-items:center;margin-right:17px;flex:0 0 50px;color:var(--navy)}.icon svg{width:23px;height:23px}.card h3{font-size:17px;margin:0 0 3px}.sub{color:#9ca2a8;font-size:11px;line-height:1.45}
-.academy{height:75px;margin-top:26px;border:1px solid var(--border);border-radius:16px;background:#fff;box-shadow:0 2px 7px #10203012;display:flex;align-items:center;padding:0 27px}.academy-logo{width:96px;padding-right:22px;border-right:1px solid #dfe2e5;color:#173a5e;font-size:24px;font-weight:850;letter-spacing:-2px}.academy-logo span{color:#1d65a3}.academy-copy{padding-left:20px}.academy-copy strong{display:block;font-size:15px}.academy-copy small{color:#a1a6ac;font-size:11px}.discover{margin-left:auto;color:var(--navy);font-weight:750;font-size:11px}
-.admin{display:grid;grid-template-columns:1.45fr 1fr;gap:17px}.departments{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.dept{height:141px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 2px 7px #10203012;display:flex;flex-direction:column;align-items:center;justify-content:center}.dept svg{width:30px;height:30px;color:var(--navy);margin-bottom:10px}.dept span{font-size:11px;font-weight:760}.links{min-height:141px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 2px 7px #10203012;padding:18px 16px}.links h4{font-size:10px;color:#9b9fa4;letter-spacing:1.2px;margin:0 0 10px}.linkgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.quick{height:34px;background:#f4f5f7;border-radius:17px;display:flex;align-items:center;padding:0 14px;color:#5d636b;font-size:11px}
-.lower{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:17px}.lower-card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 2px 7px #10203012;padding:20px}.lower-card strong{display:block;margin-bottom:12px}.minirow{display:flex;gap:10px}.mini{flex:1;height:47px;border-radius:9px;background:#f5f6f8;display:grid;place-items:center;font-size:10px;font-weight:650;color:#5b626a}
-@media(max-width:800px){.header-inner,.page{width:calc(100% - 24px)}.nav{display:none}.hero-content{max-width:90%}.essentials,.admin,.lower{grid-template-columns:1fr}}
-@media(max-width:560px){.search{width:150px}.hero{height:390px}.hero-content{max-width:100%;padding:44px 22px}.hero h1{font-size:24px}.news-all{display:none}.departments{grid-template-columns:1fr 1fr}}
+:root{
+  --navy:#173a5e;
+  --red:#c9283d;
+  --bg:#f4f5f7;
+  --text:#252a31;
+  --muted:#999fa6;
+  --border:#e1e4e8;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:14px;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  height:61px;
+  background:#fff;
+  border-bottom:1px solid #e2e4e7;
+  display:flex;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.header-inner{
+  width:min(1040px,calc(100% - 40px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+}
+
+.logo{
+  width:45px;
+  margin-right:34px;
+}
+
+.logo img{
+  width:43px;
+}
+
+.nav{
+  display:flex;
+  height:100%;
+  gap:27px;
+}
+
+.nav a{
+  display:flex;
+  align-items:center;
+  position:relative;
+  font-size:13px;
+  font-weight:650;
+  color:#4e5359;
+}
+
+.nav a.active:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  background:var(--red);
+}
+
+.spacer{
+  flex:1;
+}
+
+.search{
+  width:235px;
+  height:40px;
+  border:1px solid #d7dade;
+  border-radius:9px;
+  padding:0 13px;
+  outline:0;
+}
+
+.avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#f9dce1;
+  color:#bd3043;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  font-size:12px;
+  margin-left:14px;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+  width:min(1040px,calc(100% - 40px));
+  margin:auto;
+  padding-bottom:40px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  height:290px;
+  position:relative;
+  overflow:hidden;
+  border-radius:0 0 15px 15px;
+  box-shadow:0 2px 7px #10203018;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      #123c67f5 0%,
+      #143d64b8 38%,
+      #143d6435 75%,
+      #143d6418 100%
+    ),
+    url("pexels-gije-7107624.jpg");
+
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:650px;
+  max-width:75%;
+  padding:49px 40px;
+  color:white;
+}
+
+.kicker{
+  font-size:11px;
+  font-weight:750;
+  letter-spacing:1.2px;
+  color:#bfd1e3;
+  margin-bottom:10px;
+}
+
+.hero h1{
+  font-size:27px;
+  line-height:1.08;
+  margin:0 0 12px;
+  font-weight:760;
+}
+
+.hero p{
+  font-size:13px;
+  line-height:1.65;
+  color:#dce6ef;
+  max-width:570px;
+  margin:0 0 18px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--red);
+  color:#fff;
+  padding:12px 21px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:750;
+}
+
+/* =========================
+   NEWS
+========================= */
+
+.news{
+  height:57px;
+  margin-top:27px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 2px 7px #10203012;
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.news-label{
+  background:#fdecef;
+  color:var(--red);
+  font-size:11px;
+  font-weight:800;
+  padding:6px 10px;
+  border-radius:99px;
+  margin-right:20px;
+}
+
+.news-items{
+  display:flex;
+  gap:18px;
+  overflow:hidden;
+  flex:1;
+  color:#7c8289;
+  font-size:11px;
+}
+
+.news-items strong{
+  color:#24282d;
+}
+
+.news-all{
+  color:var(--navy);
+  font-weight:750;
+  font-size:11px;
+  margin-left:14px;
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.title{
+  font-size:18px;
+  line-height:1.2;
+  font-weight:760;
+  margin:27px 0 11px;
+}
+
+/* =========================
+   ESSENTIALS
+========================= */
+
+.essentials{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
+}
+
+.card{
+  min-height:107px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 2px 7px #10203012;
+  display:flex;
+  align-items:center;
+  padding:18px 22px 18px 27px;
+  position:relative;
+  overflow:hidden;
+  transition:.2s ease;
+}
+
+.card:hover,
+.academy:hover,
+.dept:hover,
+.lower-card:hover{
+  transform:translateY(-2px);
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:var(--red);
+}
+
+.icon{
+  width:50px;
+  height:50px;
+  border-radius:10px;
+  background:#f5f6f8;
+  display:grid;
+  place-items:center;
+  margin-right:17px;
+  flex:0 0 50px;
+  color:var(--navy);
+}
+
+.icon svg{
+  width:23px;
+  height:23px;
+}
+
+.card h3{
+  font-size:17px;
+  margin:0 0 3px;
+}
+
+.sub{
+  color:#9ca2a8;
+  font-size:11px;
+  line-height:1.45;
+}
+
+/* =========================
+   ACADEMY
+========================= */
+
+.academy{
+  height:75px;
+  margin-top:26px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 2px 7px #10203012;
+  display:flex;
+  align-items:center;
+  padding:0 27px;
+  transition:.2s ease;
+}
+
+.academy-logo{
+  width:96px;
+  padding-right:22px;
+  border-right:1px solid #dfe2e5;
+  color:#173a5e;
+  font-size:24px;
+  font-weight:850;
+  letter-spacing:-2px;
+}
+
+.academy-logo span{
+  color:#1d65a3;
+}
+
+.academy-copy{
+  padding-left:20px;
+}
+
+.academy-copy strong{
+  display:block;
+  font-size:15px;
+}
+
+.academy-copy small{
+  color:#a1a6ac;
+  font-size:11px;
+}
+
+.discover{
+  margin-left:auto;
+  color:var(--navy);
+  font-weight:750;
+  font-size:11px;
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+.admin{
+  display:grid;
+  grid-template-columns:1.45fr 1fr;
+  gap:17px;
+}
+
+.departments{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.dept{
+  height:141px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 2px 7px #10203012;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:.2s ease;
+}
+
+.dept svg{
+  width:30px;
+  height:30px;
+  color:var(--navy);
+  margin-bottom:10px;
+}
+
+.dept span{
+  font-size:11px;
+  font-weight:760;
+}
+
+/* =========================
+   QUICK LINKS
+========================= */
+
+.links{
+  min-height:141px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 2px 7px #10203012;
+  padding:18px 16px;
+}
+
+.links h4{
+  font-size:10px;
+  color:#9b9fa4;
+  letter-spacing:1.2px;
+  margin:0 0 10px;
+}
+
+.linkgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+
+.quick{
+  height:34px;
+  background:#f4f5f7;
+  border-radius:17px;
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  color:#5d636b;
+  font-size:11px;
+  transition:.2s ease;
+}
+
+.quick:hover{
+  background:#e9edf1;
+  color:var(--navy);
+}
+
+/* =========================
+   LOWER
+========================= */
+
+.lower{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
+  margin-top:17px;
+}
+
+.lower-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 2px 7px #10203012;
+  padding:20px;
+  transition:.2s ease;
+}
+
+.lower-card strong{
+  display:block;
+  margin-bottom:12px;
+}
+
+.minirow{
+  display:flex;
+  gap:10px;
+}
+
+.mini{
+  flex:1;
+  height:47px;
+  border-radius:9px;
+  background:#f5f6f8;
+  display:grid;
+  place-items:center;
+  font-size:10px;
+  font-weight:650;
+  color:#5b626a;
+}
+
+.mini:hover{
+  background:#e9edf1;
+  color:var(--navy);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+  .header-inner,
+  .page{
+    width:calc(100% - 24px);
+  }
+
+  .nav{
+    display:none;
+  }
+
+  .hero-content{
+    max-width:90%;
+  }
+
+  .essentials,
+  .admin,
+  .lower{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:560px){
+
+  .search{
+    width:150px;
+  }
+
+  .hero{
+    height:390px;
+  }
+
+  .hero-content{
+    max-width:100%;
+    padding:44px 22px;
+  }
+
+  .hero h1{
+    font-size:24px;
+  }
+
+  .news-all{
+    display:none;
+  }
+
+  .departments{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
 </style>
 </head>
+
+
 <body>
+
 <header class="header">
+
   <div class="header-inner">
-    <a class="logo" href="#"><img src="GOP_logo_isolated.png" alt="GOP"></a>
+
+    <!-- GOP LOGO -->
+    <a class="logo" href="#">
+      <img src="GOP_logo_isolated.png" alt="GOP">
+    </a>
+
+    <!-- MENU — KEPT AS # -->
     <nav class="nav">
-      <a class="active" href="#">Accueil</a><a href="#">Missions</a><a href="#">Équipe</a><a href="#">Documents</a><a href="#">Annuaire</a>
+
+      <a class="active" href="#">
+        Accueil
+      </a>
+
+      <a href="#">
+        Missions
+      </a>
+
+      <a href="#">
+        Équipe
+      </a>
+
+      <a href="#">
+        Documents
+      </a>
+
+      <a href="#">
+        Annuaire
+      </a>
+
     </nav>
+
     <div class="spacer"></div>
-    <input class="search" placeholder="Rechercher sur l'intranet...">
-    <div class="avatar">CR</div>
+
+    <input
+      class="search"
+      type="search"
+      placeholder="Rechercher sur l'intranet..."
+    >
+
+    <div class="avatar">
+      CR
+    </div>
+
   </div>
+
 </header>
 
+
 <main class="page">
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
 <section class="hero">
+
   <div class="hero-bg"></div>
+
   <div class="hero-content">
-    <div class="kicker">MISSION EN AVANT</div>
-    <h1>Transformation Méridien — Phase 2 sur 3 lancée</h1>
-    <p>L'équipe pilotage entame la refonte des instances de gouvernance. Point d'avancement complet vendredi en COMEX.</p>
-    <a class="btn" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Processus%20-%20Descriptif%20et%20pr%C3%A9sentation" target="_blank" rel="noopener">Voir la mission</a>
+
+    <div class="kicker">
+      QUALITÉ — ISO 9001
+    </div>
+
+    <h1>
+      Votre espace Qualité GOP Conseil
+    </h1>
+
+    <p>
+      Retrouvez les processus, documents qualité,
+      référentiels, dossiers techniques et ressources
+      nécessaires au système de management de la qualité.
+    </p>
+
+    <!-- STRATEGY DOCUMENT -->
+    <a
+      class="btn"
+      target="_blank"
+      href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Strat%C3%A9gie%20-%20Document%20Sign%C3%A9/GOP_ANA_SWOT_01_Analyse_Strategique.docx?web=1"
+    >
+      Voir la stratégie
+    </a>
+
   </div>
+
 </section>
+
+
+<!-- =====================================
+     NEWS
+===================================== -->
 
 <section class="news">
-  <span class="news-label">Newsletter</span>
+
+  <span class="news-label">
+    Qualité
+  </span>
+
   <div class="news-items">
-    <span><strong>Qualité ISO 9001</strong> — référentiels et processus disponibles</span><span>•</span>
-    <span><strong>Qualification HTI-A</strong> — dossiers techniques disponibles</span><span>•</span>
-    <span><strong>PAQ / SOPAQ</strong> — documents qualité disponibles</span>
+
+    <span>
+      <strong>ISO 9001</strong>
+      Documents et processus qualité
+    </span>
+
+    <span>•</span>
+
+    <span>
+      <strong>HTI-A</strong>
+      Dossiers techniques disponibles
+    </span>
+
+    <span>•</span>
+
+    <span>
+      <strong>PAQ</strong>
+      Plans d'assurance qualité
+    </span>
+
   </div>
-  <a class="news-all" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001" target="_blank" rel="noopener">Tout voir →</a>
+
+  <a
+    class="news-all"
+    target="_blank"
+    href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001"
+  >
+    Accéder au site →
+  </a>
+
 </section>
 
-<h2 class="title">Vos espaces essentiels</h2>
+
+<!-- =====================================
+     ESSENTIAL SPACES
+===================================== -->
+
+<h2 class="title">
+  Vos espaces essentiels
+</h2>
+
+
 <section class="essentials">
-  <a class="card" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Processus%20-%20Descriptif%20et%20pr%C3%A9sentation" target="_blank" rel="noopener">
-    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
-    <div><h3>WikiGOP</h3><div class="sub">Processus, méthodologies métier, référentiels et documentation ISO 9001.</div></div>
+
+
+  <!-- WIKIGOP / PROCESSUS -->
+
+  <a
+    class="card"
+    target="_blank"
+    href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Processus%20-%20Descriptif%20et%20pr%C3%A9sentation/GOP_PRO_COM_01_Developpement_Commercial_v3.docx?web=1"
+  >
+
+    <div class="icon">
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+      >
+        <rect
+          x="6"
+          y="3"
+          width="12"
+          height="18"
+          rx="1.5"
+        />
+
+        <path d="M9 7h6M9 11h6M9 15h4"/>
+
+      </svg>
+
+    </div>
+
+    <div>
+
+      <h3>
+        WikiGOP
+      </h3>
+
+      <div class="sub">
+        Méthodologies métier, processus et documentation qualité.
+      </div>
+
+    </div>
+
   </a>
 
-  <a class="card" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/PAQ/SOPAQ/OneDrive_1_01-04-2025" target="_blank" rel="noopener">
-    <div class="icon" style="color:#c9283d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M8 8a4 4 0 0 1 8 0M8 12h8"/></svg></div>
-    <div><h3>Caisse à outils</h3><div class="sub">PAQ, SOPAQ, trames et supports qualité prêts à l'emploi.</div></div>
+
+  <!-- CAISSE A OUTILS / SOPAQ -->
+
+  <a
+    class="card"
+    target="_blank"
+    href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/PAQ/SOPAQ/OneDrive_1_01-04-2025/SOPAQ.pdf?web=1"
+  >
+
+    <div
+      class="icon"
+      style="color:#c9283d"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+      >
+
+        <path d="M5 8h14l1 12H4L5 8Z"/>
+
+        <path d="M8 8a4 4 0 0 1 8 0M8 12h8"/>
+
+      </svg>
+
+    </div>
+
+    <div>
+
+      <h3>
+        Caisse à outils
+      </h3>
+
+      <div class="sub">
+        Plans d'assurance qualité, SOPAQ et supports prêts à l'emploi.
+      </div>
+
+    </div>
+
   </a>
+
 </section>
 
-<a class="academy" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Strat%C3%A9gie%20-%20Document%20Sign%C3%A9" target="_blank" rel="noopener">
-  <div class="academy-logo">gop<span>A</span></div>
-  <div class="academy-copy"><strong>GOP Academy — développez vos compétences</strong><small>Politique qualité, stratégie et documents de référence internes.</small></div>
-  <div class="discover">Découvrir →</div>
+
+<!-- =====================================
+     GOP ACADEMY
+===================================== -->
+
+<a
+  class="academy"
+  target="_blank"
+  href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Enregistrement%20-%20Fiche%20%2B%20CR%20%2B%20Rapport/PDC_Entreprise_Ingenierie_Ferroviaire.docx?web=1"
+>
+
+  <div class="academy-logo">
+    gop<span>A</span>
+  </div>
+
+  <div class="academy-copy">
+
+    <strong>
+      GOP Academy — développez vos compétences
+    </strong>
+
+    <small>
+      Parcours de développement des compétences et ressources professionnelles.
+    </small>
+
+  </div>
+
+  <div class="discover">
+    Découvrir →
+  </div>
+
 </a>
 
-<h2 class="title">Direction — Administratif</h2>
+
+<!-- =====================================
+     DIRECTION / ADMINISTRATIF
+===================================== -->
+
+<h2 class="title">
+  Direction — Administratif
+</h2>
+
+
 <section class="admin">
+
+
   <div class="departments">
-    <a class="dept" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Organigramme" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><span>Direction</span>
+
+
+    <!-- DIRECTION -->
+
+    <a
+      class="dept"
+      target="_blank"
+      href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Organigramme/Organigramme_GOP%20Conseil_2026.pdf?web=1"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+      >
+
+        <path d="M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+
+      </svg>
+
+      <span>
+        Direction
+      </span>
+
     </a>
-    <a class="dept" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Enregistrement%20-%20Fiche%20+%20CR%20+%20Rapport" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.6-4 2.8-6 6-6s5.4 2 6 6M14 15c3.2-.2 5.5 1.5 6 5"/></svg><span>RH</span>
+
+
+    <!-- RH -->
+
+    <a
+      class="dept"
+      target="_blank"
+      href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Processus%20-%20Descriptif%20et%20pr%C3%A9sentation/GOP_PRO_RH_01_Gestion_RH_Formation%202%20%E2%80%93%20Copie.docx?web=1"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+      >
+
+        <circle cx="9" cy="8" r="3"/>
+        <circle cx="17" cy="9" r="2.5"/>
+
+        <path
+          d="M3 20c.6-4 2.8-6 6-6s5.4 2 6 6M14 15c3.2-.2 5.5 1.5 6 5"
+        />
+
+      </svg>
+
+      <span>
+        RH
+      </span>
+
     </a>
-    <a class="dept" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Strat%C3%A9gie%20-%20Document%20Sign%C3%A9" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 18V6M4 18h17"/><path d="m7 15 4-4 3 2 5-7"/></svg><span>Stratégie</span>
+
+
+    <!-- STRATEGIE -->
+
+    <a
+      class="dept"
+      target="_blank"
+      href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Strat%C3%A9gie%20-%20Document%20Sign%C3%A9/GOP_ANA_SWOT_01_Analyse_Strategique.docx?web=1"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+      >
+
+        <path d="M4 18V6M4 18h17"/>
+        <path d="m7 15 4-4 3 2 5-7"/>
+
+      </svg>
+
+      <span>
+        Stratégie
+      </span>
+
     </a>
-    <a class="dept" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Dossier%20Administratif" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Administratif</span>
+
+
+    <!-- ADMINISTRATIF -->
+
+    <a
+      class="dept"
+      target="_blank"
+      href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Dossier%20Administratif/A%20-%20Dossier%20Administratif%20GF01106_%C3%A0%20relire%20et%20signer.docx?web=1"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+      >
+
+        <path d="M6 3h9l4 4v14H6z"/>
+
+        <path d="M14 3v5h5M9 13h6M9 17h6"/>
+
+      </svg>
+
+      <span>
+        Administratif
+      </span>
+
     </a>
+
   </div>
 
+
+  <!-- =====================================
+       QUICK LINKS
+  ===================================== -->
+
   <aside class="links">
-    <h4>LIENS UTILES</h4>
+
+    <h4>
+      LIENS UTILES
+    </h4>
+
     <div class="linkgrid">
-      <a class="quick" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Parties%20Prenantes" target="_blank" rel="noopener">Parties prenantes</a>
-      <a class="quick" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Dossier%20technique" target="_blank" rel="noopener">Dossier technique</a>
-      <a class="quick" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Dossier%20Administratif/Attestation%20engagement%20d%C3%A9marche%20%209001%20GOP%20CONSEIL.pdf" target="_blank" rel="noopener">Attestation 9001</a>
-      <a class="quick" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Organigramme" target="_blank" rel="noopener">Organigramme</a>
+
+
+      <!-- ISO ATTESTATION -->
+
+      <a
+        class="quick"
+        target="_blank"
+        href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Dossier%20Administratif/Attestation%20engagement%20d%C3%A9marche%20%209001%20GOP%20CONSEIL.pdf?web=1"
+      >
+        Attestation ISO 9001
+      </a>
+
+
+      <!-- PARTIES PRENANTES -->
+
+      <a
+        class="quick"
+        target="_blank"
+        href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Parties%20Prenantes/Parties%20prenantes_GOP_V0-06-2026.xlsx?web=1"
+      >
+        Parties prenantes
+      </a>
+
+
+      <!-- TECHNICAL DOSSIER -->
+
+      <a
+        class="quick"
+        target="_blank"
+        href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualification%20HTI-A/Dossier%20technique/MGS_HTI_GOP%20Conseil%20corrig%C3%A9_27.04.2026.docx?web=1"
+      >
+        Dossier technique
+      </a>
+
+
+      <!-- PROCESSUS RH -->
+
+      <a
+        class="quick"
+        target="_blank"
+        href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Enregistrement%20-%20Fiche%20%2B%20CR%20%2B%20Rapport/GOP-RH-EVAL-01_Entretien-RH.docx?web=1"
+      >
+        Évaluation RH
+      </a>
+
+
     </div>
+
   </aside>
+
 </section>
+
+
+<!-- =====================================
+     LOWER RESOURCES
+===================================== -->
 
 <section class="lower">
-  <div class="lower-card"><strong>Actualités internes</strong><div class="minirow">
-    <a class="mini" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001" target="_blank" rel="noopener">Voir les actualités</a>
-    <a class="mini" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001" target="_blank" rel="noopener">Événements</a>
-  </div></div>
 
-  <div class="lower-card"><strong>Ressources rapides</strong><div class="minirow">
-    <a class="mini" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/PAQ/SOPAQ/OneDrive_1_01-04-2025/005-SOPAQ.pdf" target="_blank" rel="noopener">SOPAQ</a>
-    <a class="mini" href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/ISO%209001/Strat%C3%A9gie%20-%20Document%20Sign%C3%A9/GOP_POL_QUA_01_Politique_Qualite.docx" target="_blank" rel="noopener">Politique qualité</a>
-  </div></div>
+
+  <!-- PAQ -->
+
+  <div class="lower-card">
+
+    <strong>
+      Actualités internes
+    </strong>
+
+    <div class="minirow">
+
+      <a
+        class="mini"
+        target="_blank"
+        href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/PAQ/GOP%20-%20PAQ.docx?web=1"
+      >
+        GOP — PAQ
+      </a>
+
+      <a
+        class="mini"
+        target="_blank"
+        href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/PAQ/GOP%20-%20Notice%20RSE.docx?web=1"
+      >
+        Notice RSE
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- QUALITY RESOURCES -->
+
+  <div class="lower-card">
+
+    <strong>
+      Ressources rapides
+    </strong>
+
+    <div class="minirow">
+
+      <a
+        class="mini"
+        target="_blank"
+        href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/Qualit%C3%A9/Charte%20Ethique%20et%20comportement.docx?web=1"
+      >
+        Charte Éthique
+      </a>
+
+      <a
+        class="mini"
+        target="_blank"
+        href="https://gopconseil1.sharepoint.com/sites/Qualit-ISO9001/Shared%20Documents/Qualifications%20SNCF/PAQ/GOP%20-%20Note%20s%C3%A9curit%C3%A9.docx?web=1"
+      >
+        Note sécurité
+      </a>
+
+    </div>
+
+  </div>
+
 </section>
+
+
 </main>
+
 </body>
 </html>
